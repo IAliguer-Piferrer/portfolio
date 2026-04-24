@@ -98,7 +98,7 @@ Proven track record in raising funding, leading high-performance teams, and scal
 
 ---
 
-### UPC – Graduate Research Assistant  
+### Polytechnic University of Catalonia (UPC) – Barcelona  
 *2008 – 2010*
 
 - Stability analysis of Canellas Dam using FEM  
@@ -108,7 +108,7 @@ Proven track record in raising funding, leading high-performance teams, and scal
 ## Education
 
 **MSc & BSc in Geological Engineering**  
-UPC & University of Barcelona  
+Polytechnic University of Catalonia (UPC) & University of Barcelona  
 *2003 – 2008*
 
 - 🏆 1st Ranked GPA  
