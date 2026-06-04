@@ -31,7 +31,8 @@ if __name__ == "__main__":
 
     st.set_page_config(page_title="Demo Maps", page_icon=":map:", layout="wide")
 
-    st.title("Route between two points")
+    st.title("Route between two points: ") 
+    st.header("A demo with OpenRouteService API and Folium maps")
     
     coord_start = st.text_input("Enter the starting coordinates (latitude, longitude):", "41.4013 , 2.1517")
     start_lat = float(coord_start.split(",")[0])

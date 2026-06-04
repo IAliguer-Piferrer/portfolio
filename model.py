@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import os
-
+from openai import OpenAI
 from langchain_community.document_loaders import UnstructuredMarkdownLoader, TextLoader
 from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
@@ -9,6 +9,29 @@ from langchain_chroma import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv(usecwd=True))
+
+def call_GPT_stream(model, prompt):
+    client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+    response = client.chat.completions.create(
+                       model=model,
+                       temperature=1, # controls creativity
+                       messages=[{"role": "user", "content": prompt}],
+                       stream=True)
+    
+    for chunk in response:
+        if chunk.choices[0].delta.content:
+            yield chunk.choices[0].delta.content
+    
+
+def call_TTS(model, text):
+    client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+    response = client.audio.speech.create(model=model, 
+                                          input=text, 
+                                          voice="coral")
+    with open("attraction.mp3", "wb") as f:
+        f.write(response.content)
+    return
+
 
 def call_rag_system(question: str) -> str:
     
